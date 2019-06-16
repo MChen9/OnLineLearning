@@ -1,16 +1,18 @@
 import numpy as np
 import cv2
-import ffmpeg
+import os
 
 class CameraData:
-    def getFrame(self):
+
+    def getDataArray(self):
         cap = cv2.VideoCapture(0)
 
         while (True):
             # Capture frame-by-frame
             ret, frame = cap.read()
             print(np.array(frame))
-            if cv2.waitKey(1) & 0xFF == ord('q'):
+
+            if cv2.waitKey(300):
                 break
 
         # When everything done, release the capture
@@ -18,10 +20,11 @@ class CameraData:
         cv2.destroyAllWindows()
         pass
 
-    def getDataArray(self):
+    def sendDataArray(self):
+        
         pass
 
 
-
-camData = CameraData()
-camData.getFrame()
+if __name__ == '__main__':
+    camData = CameraData()
+    camData.getDataArray()
