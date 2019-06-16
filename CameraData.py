@@ -1,8 +1,13 @@
 import numpy as np
 import cv2
-import os
+import socket
+
 
 class CameraData:
+    # static variables
+    def __init__(self):
+        self.dataArray = np.array([])
+        pass
 
     def getDataArray(self):
         cap = cv2.VideoCapture(0)
@@ -10,18 +15,17 @@ class CameraData:
         while (True):
             # Capture frame-by-frame
             ret, frame = cap.read()
-            print(np.array(frame))
+            self.dataArray = np.array(frame)
 
             if cv2.waitKey(300):
                 break
 
         # When everything done, release the capture
         cap.release()
-        cv2.destroyAllWindows()
         pass
 
     def sendDataArray(self):
-        
+        self.dataArray
         pass
 
 
