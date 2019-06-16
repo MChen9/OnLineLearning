@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 import ffmpeg
-'this is branch 2 '
+
 class CameraData:
     def getFrame(self):
         cap = cv2.VideoCapture(0)
